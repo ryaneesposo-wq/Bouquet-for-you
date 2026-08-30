@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(135deg, #ffe0ed, #fff7fa, #ffcddd);
+    color: #702c4c;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 94%;
+    max-width: 900px;
+    margin: auto;
+    padding: 35px 10px 60px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    color: #d94680;
+    font-size: clamp(34px, 8vw, 58px);
+    text-shadow: 0 4px 15px rgba(217, 70, 128, 0.2);
+}
+
+.subtitle {
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #a84b70;
+}
+
+
+/* =========================
+   BOUQUET
+========================= */
+
+.bouquet {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    height: 410px;
+    margin: 0 auto;
+}
+
+
+/* Stems */
+
+.stem {
+    position: absolute;
+    z-index: 1;
+    bottom: 105px;
+    left: 50%;
+    width: 7px;
+    height: 210px;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        #4f9658,
+        #9bd27e
+    );
+    transform-origin: bottom center;
+}
+
+.stem1 {
+    transform: rotate(-32deg);
+}
+
+.stem2 {
+    transform: rotate(-21deg);
+}
+
+.stem3 {
+    transform: rotate(-10deg);
+}
+
+.stem4 {
+    transform: rotate(7deg);
+}
+
+.stem5 {
+    transform: rotate(20deg);
+}
+
+.stem6 {
+    transform: rotate(32deg);
+}
+
+
+/* Leaves */
+
+.leaf {
+    position: absolute;
+    z-index: 2;
+    width: 72px;
+    height: 31px;
+    background: linear-gradient(
+        135deg,
+        #80bd70,
+        #4f9658
+    );
+    border-radius: 100% 0 100% 0;
+}
+
+.leaf1 {
+    left: 27%;
+    top: 270px;
+    transform: rotate(25deg);
+}
+
+.leaf2 {
+    left: 60%;
+    top: 260px;
+    transform: scaleX(-1) rotate(25deg);
+}
+
+.leaf3 {
+    left: 38%;
+    top: 300px;
+    transform: rotate(12deg);
+}
+
+.leaf4 {
+    left: 51%;
+    top: 285px;
+    transform: scaleX(-1) rotate(15deg);
+}
+
+
+/* Flowers */
+
+.flower {
+    position: absolute;
+    z-index: 6;
+    width: 90px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+    animation: flowerFloat 3.5s ease-in-out infinite;
+}
+
+.flower1 {
+    left: 27%;
+    top: 120px;
+}
+
+.flower2 {
+    left: 39%;
+    top: 78px;
+}
+
+.flower3 {
+    left: 51%;
+    top: 62px;
+}
+
+.flower4 {
+    left: 64%;
+    top: 82px;
+}
+
+.flower5 {
+    left: 75%;
+    top: 125px;
+}
+
+.flower6 {
+    left: 34%;
+    top: 155px;
+}
+
+.flower7 {
+    left: 48%;
+    top: 135px;
+}
+
+.flower8 {
+    left: 61%;
+    top: 155px;
+}
+
+
+/* Pink petals */
+
+.petal {
+    position: absolute;
+    left: 26px;
+    top: 5px;
+    width: 38px;
+    height: 53px;
+
+    border-radius:
+        50% 50%
+        45% 45%;
+
+    background: linear-gradient(
+        145deg,
+        #ffb5d0,
+        #f05b98
+    );
+
+    transform-origin: 19px 39px;
+
+    box-shadow:
+        inset 3px 3px 8px rgba(255,255,255,0.35);
+}
+
+.petal1 {
+    transform: rotate(0deg) translateY(-17px);
+}
+
+.petal2 {
+    transform: rotate(72deg) translateY(-17px);
+}
+
+.petal3 {
+    transform: rotate(144deg) translateY(-17px);
+}
+
+.petal4 {
+    transform: rotate(216deg) translateY(-17px);
+}
+
+.petal5 {
+    transform: rotate(288deg) translateY(-17px);
+}
+
+
+/* Flower center */
+
+.flower-center {
+    position: absolute;
+    z-index: 10;
+
+    left: 32px;
+    top: 32px;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #ffd45e;
+
+    box-shadow:
+        0 2px 8px rgba(150,80,50,0.2);
+}
+
+
+/* Bouquet wrapper */
+
+.wrapper {
+    position: absolute;
+    z-index: 4;
+
+    bottom: 5px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 285px;
+    height: 155px;
+
+    background: linear-gradient(
+        145deg,
+        #ffc0d8,
+        #eb72a1
+    );
+
+    clip-path: polygon(
+        6% 0,
+        94% 0,
+        100% 100%,
+        50% 72%,
+        0 100%
+    );
+
+    filter:
+        drop-shadow(
+            0 12px 14px
+            rgba(180,60,110,0.22)
+        );
+}
+
+
+/* Wrapper inner line */
+
+.wrapper::after {
+    content: "";
+
+    position: absolute;
+    inset: 9px;
+
+    border: 2px solid rgba(255,255,255,0.35);
+
+    clip-path: polygon(
+        6% 0,
+        94% 0,
+        100% 100%,
+        50% 72%,
+        0 100%
+    );
+}
+
+
+/* Ribbon */
+
+.ribbon {
+    position: absolute;
+    z-index: 8;
+
+    bottom: 48px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 24px;
+    height: 72px;
+
+    background: #cf326d;
+
+    border-radius: 5px;
+}
+
+
+/* Bow */
+
+.bow {
+    position: absolute;
+    z-index: 9;
+
+    bottom: 78px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 110px;
+    height: 50px;
+}
+
+.bow-left,
+.bow-right {
+    position: absolute;
+
+    top: 5px;
+
+    width: 60px;
+    height: 40px;
+
+    background: #f04c8b;
+
+    box-shadow:
+        inset 3px 3px 6px rgba(255,255,255,0.2);
+}
+
+.bow-left {
+    left: 0;
+    border-radius: 80% 20% 80% 20%;
+    transform: rotate(22deg);
+}
+
+.bow-right {
+    right: 0;
+    border-radius: 20% 80% 20% 80%;
+    transform: rotate(-22deg);
+}
+
+.bow-center {
+    position: absolute;
+    z-index: 10;
+
+    left: 43px;
+    top: 13px;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #c92e68;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.card {
+    position: relative;
+
+    background: rgba(255,255,255,0.92);
+
+    border:
+        2px solid #ffc0d8;
+
+    border-radius: 28px;
+
+    padding:
+        40px
+        clamp(22px, 6vw, 55px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(176,58,105,0.15);
+
+    text-align: left;
+}
+
+.card::before {
+    content: "♥";
+
+    position: absolute;
+
+    top: -19px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: white;
+
+    color: #ed5b96;
+
+    padding:
+        5px 13px;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+}
+
+.letter {
+    font-size: clamp(16px, 2.3vw, 19px);
+
+    line-height: 1.9;
+
+    white-space: pre-line;
+}
+
+.ending {
+    text-align: center;
+
+    margin-top: 25px;
+
+    font-size: 25px;
+
+    color: #db477f;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    color: #f27bab;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+
+    animation:
+        rise 8s linear infinite;
+}
+
+@keyframes flowerFloat {
+
+    0%, 100% {
+        transform:
+            translate(-50%, -50%)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -57%)
+            rotate(2deg);
+    }
+}
+
+@keyframes rise {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.6;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(25deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .bouquet {
+        height: 350px;
+        transform: scale(0.85);
+        transform-origin: top center;
+        margin-bottom: -40px;
+    }
+
+    .card {
+        padding: 35px 20px;
+    }
+
+    .letter {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>For You 💗</h1>
+
+    <div class="subtitle">
+        A little bouquet and a little message from me
+    </div>
+
+
+    <!-- =====================
+         PINK BOUQUET
+    ====================== -->
+
+    <div class="bouquet">
+
+        <!-- Stems -->
+        <div class="stem stem1"></div>
+        <div class="stem stem2"></div>
+        <div class="stem stem3"></div>
+        <div class="stem stem4"></div>
+        <div class="stem stem5"></div>
+        <div class="stem stem6"></div>
+
+
+        <!-- Leaves -->
+        <div class="leaf leaf1"></div>
+        <div class="leaf leaf2"></div>
+        <div class="leaf leaf3"></div>
+        <div class="leaf leaf4"></div>
+
+
+        <!-- Flower 1 -->
+        <div class="flower flower1">
+            <span class="petal petal1"></span>
+            <span class="petal petal2"></span>
+            <span class="petal petal3"></span>
+            <span class="petal petal4"></span>
+            <span class="petal petal5"></span>
+            <span class="flower-center"></span>
+        </div>
+
+
+        <!-- Flower 2 -->
+        <div class="flower flower2">
+            <span class="petal petal1"></span>
+            <span class="petal petal2"></span>
+            <span class="petal petal3"></span>
+            <span class="petal petal4"></span>
+            <span class="petal petal5"></span>
+            <span class="flower-center"></span>
+        </div>
+
+
+        <!-- Flower 3 -->
+        <div class="flower flower3">
+            <span class="petal petal1"></span>
+            <span class="petal petal2"></span>
+            <span class="petal petal3"></span>
+            <span class="petal petal4"></span>
+            <span class="petal petal5"></span>
+            <span class="flower-center"></span>
+        </div>
+
+
+        <!-- Flower 4 -->
+        <div class="flower flower4">
+            <span class="petal petal1"></span>
+            <span class="petal petal2"></span>
+            <span class="petal petal3"></span>
+            <span class="petal petal4"></span>
+            <span class="petal petal5"></span>
+            <span class="flower-center"></span>
+        </div>
+
+
+        <!-- Flower 5 -->
+        <div class="flower flower5">
+            <span class="petal petal1"></span>
+            <span class="petal petal2"></span>
+            <span class="petal petal3"></span>
+            <span class="petal petal4"></span>
+            <span class="petal petal5"></span>
+            <span class="flower-center"></span>
+        </div>
+
+
+        <!-- Flower 6 -->
+        <div class="flower flower6">
+            <span class="petal petal1"></span>
+            <span class="petal petal2"></span>
+            <span class="petal petal3"></span>
+            <span class="petal petal4"></span>
+            <span class="petal petal5"></span>
+            <span class="flower-center"></span>
+        </div>
+
+
+        <!-- Flower 7 -->
+        <div class="flower flower7">
+            <span class="petal petal1"></span>
+            <span class="petal petal2"></span>
+            <span class="petal petal3"></span>
+            <span class="petal petal4"></span>
+            <span class="petal petal5"></span>
+            <span class="flower-center"></span>
+        </div>
+
+
+        <!-- Flower 8 -->
+        <div class="flower flower8">
+            <span class="petal petal1"></span>
+            <span class="petal petal2"></span>
+            <span class="petal petal3"></span>
+            <span class="petal petal4"></span>
+            <span class="petal petal5"></span>
+            <span class="flower-center"></span>
+        </div>
+
+
+        <!-- Pink wrapper -->
+        <div class="wrapper"></div>
+
+        <!-- Ribbon -->
+        <div class="ribbon"></div>
+
+        <!-- Bow -->
+        <div class="bow">
+            <div class="bow-left"></div>
+            <div class="bow-right"></div>
+            <div class="bow-center"></div>
+        </div>
+
+    </div>
+
+
+    <!-- =====================
+         LETTER
+    ====================== -->
+
+    <div class="card">
+
+        <div class="letter">Gagawin ko yung makakaya ko para mapasaya ka, kahit sa mga simpleng bagay lang. Hindi naman kailangan na malaki or bongga, kahit konting ngiti lang sa'yo, okay na sa'kin.
+
+Gusto ko lang maging someone na kahit papaano, nakakadagdag ng saya sa araw mo. Kaya habang binibigyan mo ako ng chance na makilala ka pa nang buong-buo, gusto ko rin ipakita sa'yo na I genuinely care about you.
+
+Hindi ko man maibigay lahat, pero I promise na I'll always do my best to make you feel appreciated, valued, and cared for. Kahit maliit na bagay lang, basta makita kitang masaya, magiging worth it na sa'kin.</div>
+
+        <div class="ending">
+            With care, always 💗
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* Floating hearts */
+
+for (let i = 0; i < 20; i++) {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.textContent = "♥";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    
